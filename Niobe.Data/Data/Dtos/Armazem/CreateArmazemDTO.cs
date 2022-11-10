@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Niobe.Core
+namespace Niobe.Data
 {
-    public class Armazem : CommomEndereco
+    public class CreateArmazemDTO : CommomEnderecoDTO
     {
-        public virtual Filial Filial { get; set; }
-        public virtual List<Rua> Ruas { get; set; }
         [Required]
         public long IdFilial { get; set; }
-
     }
 }

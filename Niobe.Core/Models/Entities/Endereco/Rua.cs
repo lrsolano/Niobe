@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Niobe.Core
 {
-    public sealed class Rua : CommomEndereco
+    public class Rua : CommomEndereco
     {
-        public Armazem Armazem { get; private set; }
+        public virtual Armazem Armazem { get; set; }
+        public virtual List<Coluna> Colunas { get; set; }
+        [Required]
+        public long IdArmazem { get; set; }
+
     }
 }

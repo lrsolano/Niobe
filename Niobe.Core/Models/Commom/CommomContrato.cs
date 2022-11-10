@@ -6,9 +6,9 @@ namespace Niobe.Core
 {
     public abstract class CommomContrato
     {
-        public long Id { get; private set; }
-        public string Codigo { get; private set; }
-        public string Nome { get; private set; }
-        public bool Ativo { get; private set; }
+        public long Id { get; set; }
+        public string Codigo { get; set; }
+        public string Nome { get; set; }
+        public bool Ativo { get; set; }
     }
 }

@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace Niobe.Core
 {
-    public sealed class Nivel : CommomEndereco
+    public class Nivel : CommomEndereco
     {
-        public Coluna Coluna { get; private set; }
+        public virtual Coluna Coluna { get; set; }
+        public virtual List<Bloco> Blocos { get; set; }
+        [Required]
+        public long IdColuna { get; set; }
     }
 }
