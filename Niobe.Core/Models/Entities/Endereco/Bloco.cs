@@ -11,5 +11,6 @@ namespace Niobe.Core
         public long IdNivel { get; set; }
         [Required]
         public string EnderecoFisico { get; set; }
+        public bool Ocupado { get; set; }
     }
 }
