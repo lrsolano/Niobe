@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Niobe.Data", "Niobe.Data\Ni
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Niobe.API", "Niobe.API\Niobe.API.csproj", "{05B099A8-F8BB-485A-BAFE-82740A7ED8B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Niobe.FastTest", "Niobe.FastTest\Niobe.FastTest.csproj", "{98E0DCC9-669D-4999-92A9-7EC4A9AAC246}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Niobe.FastTest", "Niobe.FastTest\Niobe.FastTest.csproj", "{98E0DCC9-669D-4999-92A9-7EC4A9AAC246}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Niobe.Service", "Niobe.Service\Niobe.Service.csproj", "{2907334A-C906-4311-8C41-5111794A841D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{98E0DCC9-669D-4999-92A9-7EC4A9AAC246}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98E0DCC9-669D-4999-92A9-7EC4A9AAC246}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98E0DCC9-669D-4999-92A9-7EC4A9AAC246}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2907334A-C906-4311-8C41-5111794A841D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2907334A-C906-4311-8C41-5111794A841D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2907334A-C906-4311-8C41-5111794A841D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2907334A-C906-4311-8C41-5111794A841D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

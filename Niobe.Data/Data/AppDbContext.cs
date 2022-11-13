@@ -52,5 +52,6 @@ namespace Niobe.Data
         public DbSet<Coluna> Colunas { get; set; }
         public DbSet<Nivel> Nivel { get; set; }
         public DbSet<Bloco> Blocos { get; set; }
+        public DbSet<GeradorEnderecos> GeradorEndereços { get; set; }
     }
 }

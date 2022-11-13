@@ -12,7 +12,7 @@ namespace Niobe.FastTest
         {
             try
             {
-                GeradorEndereços gerador = new GeradorEndereços();
+                GeradorEnderecos gerador = new GeradorEnderecos();
 
                 gerador.IdArmazem = 2;
 
