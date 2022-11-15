@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Niobe.Service
 {
-    //sc.exe create "Niobe Service" binpath="J:\_Projetos\Projeto Niobe\Niobe Service\Niobe.Service.exe"
+    //sc.exe create "Niobe Timer" binpath="J:\_Projetos\Projeto Niobe\Niobe Service\Niobe.Timer.exe"
 
     public class Program
     {

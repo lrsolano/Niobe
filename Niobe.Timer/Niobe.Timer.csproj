@@ -13,5 +13,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Niobe.Core\Niobe.Core.csproj" />
     <ProjectReference Include="..\Niobe.Data\Niobe.Data.csproj" />
+    <ProjectReference Include="..\Niobe.Service\Niobe.Service.csproj" />
   </ItemGroup>
 </Project>

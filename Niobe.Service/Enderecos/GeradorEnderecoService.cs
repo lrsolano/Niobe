@@ -4,6 +4,7 @@ using Niobe.Core;
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using FluentResults;
 using System.Text;
 
 namespace Niobe.Service
@@ -39,6 +40,23 @@ namespace Niobe.Service
             }
 
             return null;
+        }
+
+        public void CreatEnderecos()
+        {
+            var geradors = _context.GeradorEndereços.Where(g => !g.GeracaoCompletada);
+
+            foreach (var gerador in geradors)
+            {
+                List<Rua> ruas = gerador.CriarEnderecos();
+                _context.Ruas.AddRange(ruas);
+
+                gerador.GeracaoCompletada = true;
+                _context.GeradorEndereços.Update(gerador);
+            }
+
+            _context.SaveChanges();
+
         }
     }
 }

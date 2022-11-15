@@ -3,6 +3,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Niobe.Data;
 using Niobe.Core;
+using Niobe.Service;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -33,23 +34,13 @@ namespace Niobe.Service
                 int delay = Convert.ToInt32(config.GetSection("AppSettings")["Delay"])*1000;
                 try
                 {
-
                     _logger.LogInformation("Niobe Service running at: {time}", DateTimeOffset.Now);
 
                     AppDbContext appDbContext = new AppDbContext();
 
-                    var geradors = appDbContext.GeradorEndereços.Where(g => !g.GeracaoCompletada);
+                    GeradorEnderecoService geradorEnderecoService = new GeradorEnderecoService(appDbContext, null);
 
-                    foreach (var gerador in geradors)
-                    {
-                        List<Rua> ruas = gerador.CriarEnderecos();
-                        appDbContext.Ruas.AddRange(ruas);
-
-                        gerador.GeracaoCompletada = true;
-                        appDbContext.GeradorEndereços.Update(gerador);
-                    }
-
-                    appDbContext.SaveChanges();
+                    geradorEnderecoService.CreatEnderecos();
 
                     appDbContext.Dispose();
 
