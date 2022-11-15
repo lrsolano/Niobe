@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Niobe.Data;
+using Niobe.Service;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -32,6 +33,15 @@ namespace Niobe.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDbContext>(opts => opts.UseLazyLoadingProxies().UseMySQL(Configuration.GetConnectionString("NiobeConnection")));
+
+            services.AddScoped<FilialService, FilialService>();
+            services.AddScoped<ArmazemService, ArmazemService>();
+            services.AddScoped<RuaService, RuaService>();
+            services.AddScoped<ColunaService, ColunaService>();
+            services.AddScoped<NivelService, NivelService>();
+            services.AddScoped<BlocoService, BlocoService>();
+            services.AddScoped<GeradorEnderecoService, GeradorEnderecoService>();
+
             services.AddControllers().AddJsonOptions(opts =>
             {
                 opts.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Niobe.Data
 {
-    public abstract class CommomEnderecoDTO
+    public abstract class CommomCreateEnderecoDTO
     {
         [Required(ErrorMessage = "Código é um campo obrigatório")]
         [StringLength(10, ErrorMessage = "Telefone grande de mais")]

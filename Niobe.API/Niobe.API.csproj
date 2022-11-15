@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="FluentResults" Version="3.15.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Formatters.Json" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
@@ -26,6 +27,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Niobe.Core\Niobe.Core.csproj" />
     <ProjectReference Include="..\Niobe.Data\Niobe.Data.csproj" />
+    <ProjectReference Include="..\Niobe.Service\Niobe.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>

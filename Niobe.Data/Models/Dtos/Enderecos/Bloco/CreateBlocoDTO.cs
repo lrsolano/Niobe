@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Niobe.Core
+namespace Niobe.Data
 {
-    public class Bloco : CommomEndereco
+    public class CreateBlocoDTO : CommomCreateEnderecoDTO
     {
-        public virtual Nivel Nivel { get; set; }
         [Required]
-        public long IdNivel { get; set; }
+        public long IdNivel{ get; set; }
         [Required]
         public string EnderecoFisico { get; set; }
-        public bool Ocupado { get; set; }
     }
 }

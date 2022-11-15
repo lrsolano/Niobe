@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Niobe.Data
 {
-    public class CreateArmazemDTO : CommomEnderecoDTO
+    public class CreateColunaDTO : CommomCreateEnderecoDTO
     {
         [Required]
-        public long IdFilial { get; set; }
+        public long IdRua{ get; set; }
     }
 }

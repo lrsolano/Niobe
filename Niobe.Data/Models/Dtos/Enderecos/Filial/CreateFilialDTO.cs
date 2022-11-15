@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Niobe.Data
 {
-    public class CreateFilialDTO : CommomEnderecoDTO
+    public class CreateFilialDTO : CommomCreateEnderecoDTO
     {
         [StringLength(16, ErrorMessage = "CNPJ grande de mais")]
         public string CNPJ { get; set; }
