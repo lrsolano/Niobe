@@ -56,5 +56,46 @@ namespace Niobe.Service
             }
             return null;
         }
+
+        public List<ReadBlocoDTO> GetByNivel(int idNivel)
+        {
+            List<Bloco> bloco = _context.Blocos.Where(a => a.Ativo && a.IdNivel == idNivel).OrderBy(a => a.Ordem).ToList();
+            if (bloco != null)
+            {
+                List<ReadBlocoDTO> readBlocoDTOs = _mapper.Map<List<ReadBlocoDTO>>(bloco);
+                return readBlocoDTOs;
+            }
+            return null;
+        }
+        public List<ReadBlocoDTO> GetByColuna(int idColuna)
+        {
+            List<Bloco> bloco = _context.Blocos.Where(a => a.Ativo && a.Nivel.IdColuna == idColuna).OrderBy(a => a.Ordem).ToList();
+            if (bloco != null)
+            {
+                List<ReadBlocoDTO> readBlocoDTOs = _mapper.Map<List<ReadBlocoDTO>>(bloco);
+                return readBlocoDTOs;
+            }
+            return null;
+        }
+        public List<ReadBlocoDTO> GetByRua(int idRua)
+        {
+            List<Bloco> bloco = _context.Blocos.Where(a => a.Ativo && a.Nivel.Coluna.IdRua == idRua).OrderBy(a => a.Ordem).ToList();
+            if (bloco != null)
+            {
+                List<ReadBlocoDTO> readBlocoDTOs = _mapper.Map<List<ReadBlocoDTO>>(bloco);
+                return readBlocoDTOs;
+            }
+            return null;
+        }
+        public List<ReadBlocoDTO> GetByArmazem(int idArmazem)
+        {
+            List<Bloco> bloco = _context.Blocos.Where(a => a.Ativo && a.Nivel.Coluna.Rua.IdArmazem == idArmazem).OrderBy(a => a.Ordem).ToList();
+            if (bloco != null)
+            {
+                List<ReadBlocoDTO> readBlocoDTOs = _mapper.Map<List<ReadBlocoDTO>>(bloco);
+                return readBlocoDTOs;
+            }
+            return null;
+        }
     }
 }

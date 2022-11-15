@@ -39,6 +39,33 @@ namespace Niobe.API.Controllers.Enderecos
             return NotFound();
         }
 
+        [HttpGet("armazem/{id}")]
+        [ProducesResponseType(typeof(ReadNivelDTO), 200)]
+        public IActionResult GetByArmazem(int id)
+        {
+            List<ReadNivelDTO> listDTOs = _nivelService.GetByArmazem(id);
+            if (listDTOs != null) return Ok(listDTOs);
+            return NotFound();
+        }
+
+        [HttpGet("rua/{id}")]
+        [ProducesResponseType(typeof(ReadNivelDTO), 200)]
+        public IActionResult GetByRua(int id)
+        {
+            List<ReadNivelDTO> listDTOs = _nivelService.GetByRua(id);
+            if (listDTOs != null) return Ok(listDTOs);
+            return NotFound();
+        }
+
+        [HttpGet("coluna/{id}")]
+        [ProducesResponseType(typeof(ReadNivelDTO), 200)]
+        public IActionResult GetByColuna(int id)
+        {
+            List<ReadNivelDTO> listDTOs = _nivelService.GetByColuna(id);
+            if (listDTOs != null) return Ok(listDTOs);
+            return NotFound();
+        }
+
         [HttpGet]
         [ProducesResponseType(typeof(List<ReadNivelDTO>), 200)]
         public IActionResult Get()

@@ -56,5 +56,16 @@ namespace Niobe.Service
             }
             return null;
         }
+
+        public List<ReadRuaDTO> GetByArmazem(int id)
+        {
+            List<Rua> rua = _context.Ruas.Where(a => a.Ativo && a.IdArmazem == id).OrderBy(a => a.Ordem).ToList();
+            if (rua != null)
+            {
+                List<ReadRuaDTO> readRuaDTOs = _mapper.Map<List<ReadRuaDTO>>(rua);
+                return readRuaDTOs;
+            }
+            return null;
+        }
     }
 }
