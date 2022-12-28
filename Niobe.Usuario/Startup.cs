@@ -33,7 +33,9 @@ namespace Niobe.Usuario
             services.AddDbContext<UserDbContext>(options =>
                 options.UseMySQL(Configuration.GetConnectionString("UsuarioConnection"))
             );
-            services.AddIdentity<IdentityUser<int>, IdentityRole<int>>()
+            services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(
+                opts => opts.SignIn.RequireConfirmedEmail = true
+                )
                 .AddEntityFrameworkStores<UserDbContext>();
 
             /*services.Configure<IdentityOptions>(options =>
