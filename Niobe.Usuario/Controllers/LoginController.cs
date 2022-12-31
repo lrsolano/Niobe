@@ -29,5 +29,25 @@ namespace Niobe.Usuario.Controllers
             if (token == null) return Unauthorized();
             return Ok(token);
         }
+
+        [HttpPost("/solicita-reset")]
+        public IActionResult SolicitaResetSenhaUsuario(SolicitaResetRequest request)
+        {
+            string resultado = _loginService.SolicitaResetSenhaUsuario(request);
+
+            if (string.IsNullOrEmpty(resultado)) return Unauthorized("Falha ao redefinir a senha");
+
+            return Ok(new { TokenReset = resultado});
+        }
+
+        [HttpPost("/efetua-reset")]
+        public IActionResult ResetaSenhaUsuario(EfetuaResetRequest request)
+        {
+            string resultado = _loginService.ResetaSenhaUsuario(request);
+
+            if (string.IsNullOrEmpty(resultado)) return Unauthorized("Falha ao redefinir a senha");
+
+            return Ok(new { TokenReset = resultado });
+        }
     }
 }

@@ -33,17 +33,18 @@ namespace Niobe.Usuario
             services.AddDbContext<UserDbContext>(options =>
                 options.UseMySQL(Configuration.GetConnectionString("UsuarioConnection"))
             );
-            services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(
-                opts => opts.SignIn.RequireConfirmedEmail = true
+            services.AddIdentity<CustomIdentityUser, IdentityRole<int>>(
+                opts => opts.SignIn.RequireConfirmedEmail = false
                 )
-                .AddEntityFrameworkStores<UserDbContext>();
+                .AddEntityFrameworkStores<UserDbContext>()
+                .AddDefaultTokenProviders();
 
-            /*services.Configure<IdentityOptions>(options =>
+            services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
-                options.Password.RequiredLength = 8;
-            }); */
+                options.Password.RequiredLength = 5;
+            });
 
 
             services.AddScoped<CadastroService, CadastroService>();

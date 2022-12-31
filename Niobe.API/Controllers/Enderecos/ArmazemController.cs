@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Niobe.Core;
@@ -7,6 +8,7 @@ using Niobe.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Niobe.API.Controllers
@@ -43,8 +45,11 @@ namespace Niobe.API.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(List<ReadArmazemDTO>), 200)]
+        [Authorize (Roles = "regular, manager")]
         public IActionResult Get()
         {
+            var user = this.User.Claims.ToList();
+
             List<ReadArmazemDTO> armazemDTOs =  _armazemService.Get();
 
             if (armazemDTOs != null) return Ok(armazemDTOs);

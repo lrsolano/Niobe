@@ -1,5 +1,6 @@
 ﻿using FluentResults;
 using Microsoft.AspNetCore.Identity;
+using Niobe.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,8 +9,8 @@ namespace Niobe.Service
 {
     public class LogoutService
     {
-        private SignInManager<IdentityUser<int>> _signInManager;
-        public LogoutService(SignInManager<IdentityUser<int>> signInManager)
+        private SignInManager<CustomIdentityUser> _signInManager;
+        public LogoutService(SignInManager<CustomIdentityUser> signInManager)
         {
             _signInManager = signInManager;
         }

@@ -13,6 +13,7 @@ namespace Niobe.Data
         {
             CreateMap<CreateUsuarioDto, Usuario>();
             CreateMap<Usuario, IdentityUser<int>>();
+            CreateMap<Usuario, CustomIdentityUser>();
         }
     }
 }

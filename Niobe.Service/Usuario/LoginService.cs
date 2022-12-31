@@ -11,10 +11,10 @@ namespace Niobe.Service
 {
     public class LoginService
     {
-        private SignInManager<IdentityUser<int>> _signManager;
+        private SignInManager<CustomIdentityUser> _signManager;
         private TokenService _tokenService;
 
-        public LoginService(SignInManager<IdentityUser<int>> signManager, TokenService tokenService)
+        public LoginService(SignInManager<CustomIdentityUser> signManager, TokenService tokenService)
         {
             _signManager = signManager;
             _tokenService = tokenService;
@@ -30,11 +30,40 @@ namespace Niobe.Service
                     .UserManager
                     .Users
                     .FirstOrDefault(usuario => usuario.NormalizedUserName == request.Username.ToUpper());
-                Token token = _tokenService.CreateToken(identityUser);
+                Token token = _tokenService.CreateToken(identityUser, _signManager.UserManager.GetRolesAsync(identityUser).Result);
 
                 return token;
             }
             return null;
+        }
+
+        public string ResetaSenhaUsuario(EfetuaResetRequest request)
+        {
+            CustomIdentityUser identityUser = RecuperaUsuarioPorEmail(request.Email);
+            IdentityResult identityResult = _signManager.UserManager.ResetPasswordAsync(identityUser, request.Token, request.Password).Result;
+
+            if (identityResult.Succeeded) return "Senha Redefinnida com sucesso";
+
+            return string.Empty;
+
+
+        }
+
+
+        public string SolicitaResetSenhaUsuario(SolicitaResetRequest request)
+        {
+            CustomIdentityUser identityUser = RecuperaUsuarioPorEmail(request.Email);
+
+            if (identityUser != null)
+            {
+                string codigoDeRecuperacao = _signManager.UserManager.GeneratePasswordResetTokenAsync(identityUser).Result;
+                return codigoDeRecuperacao;
+            }
+            return string.Empty;
+        }
+        private CustomIdentityUser RecuperaUsuarioPorEmail(string email)
+        {
+            return _signManager.UserManager.Users.FirstOrDefault(u => u.NormalizedEmail == email.ToUpper());
         }
     }
 }
