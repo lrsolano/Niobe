@@ -7,6 +7,8 @@ namespace Niobe.Core
 {
     public class Cliente
     {
+        [Key]
+        [Required]
         public long Id { get; set; }
         public string NomeAbreviado { get; set; }
         public string TipodeCliente { get; set; }
@@ -14,10 +16,7 @@ namespace Niobe.Core
         public string CNPJ { get; set; }
         public string CPF { get; set; }
         public virtual Endereco Endereco { get; set; }
-        [Required]
-        public long IdEndereco { get; set; }
-        public virtual Contrato Contrato { get; set; }
-        [Required]
-        public long IdContrato { get; set; }
+        public virtual List<Contrato> Contratos { get; set; }
+
     }
 }

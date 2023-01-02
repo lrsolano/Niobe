@@ -27,4 +27,9 @@
     <ProjectReference Include="..\Niobe.Core\Niobe.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Dtos\Contratos\Cliente\" />
+    <Folder Include="Models\Dtos\Contratos\Contrato\" />
+  </ItemGroup>
+
 </Project>

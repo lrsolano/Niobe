@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Niobe.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Niobe.Core
+namespace Niobe.Data
 {
-    public class Endereco : CommomContrato
+    public class ReadEnderecoDTO : CommomReadContratoDTO
     {
         public string Logradouro { get; set; }
         public string Bairro { get; set; }
@@ -14,10 +15,7 @@ namespace Niobe.Core
         public string CaixaPostal { get; set; }
         public string Complemento { get; set; }
         public string Cidade { get; set; }
-        public virtual Contrato Contrato { get; set; }
         public long IdContrato { get; set; }
-        public virtual Cliente Cliente { get; set; }
         public long IdCliente { get; set; }
-
     }
 }

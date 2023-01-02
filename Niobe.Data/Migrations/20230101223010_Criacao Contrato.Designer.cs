@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Niobe.Data;
 
 namespace Niobe.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class FilialContextModelSnapshot : ModelSnapshot
+    [Migration("20230101223010_Criacao Contrato")]
+    partial class CriacaoContrato
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

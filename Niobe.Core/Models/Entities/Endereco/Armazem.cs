@@ -9,6 +9,7 @@ namespace Niobe.Core
     {
         public virtual Filial Filial { get; set; }
         public virtual List<Rua> Ruas { get; set; }
+        public virtual List<Contrato> Contratos { get; set; }
         [Required]
         public long IdFilial { get; set; }
 

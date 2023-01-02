@@ -12,5 +12,6 @@ namespace Niobe.Core
         [StringLength(11, ErrorMessage = "Telefone grande de mais")]
         public string Telefone { get; set; }
         public virtual List<Armazem> Armazens { get; set; }
+        public virtual List<Contrato> Contratos { get; set; }
     }
 }
